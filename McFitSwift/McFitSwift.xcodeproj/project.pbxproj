@@ -14,6 +14,13 @@
 		D3DB10A62C7004FE00AA856C /* McFitSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DB10A52C7004FE00AA856C /* McFitSwiftTests.swift */; };
 		D3DB10B02C7004FE00AA856C /* McFitSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DB10AF2C7004FE00AA856C /* McFitSwiftUITests.swift */; };
 		D3DB10B22C7004FE00AA856C /* McFitSwiftUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DB10B12C7004FE00AA856C /* McFitSwiftUITestsLaunchTests.swift */; };
+		D3DB10BF2C70074300AA856C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D3DB10BE2C70074300AA856C /* GoogleService-Info.plist */; };
+		D3DB10C02C70074300AA856C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D3DB10BE2C70074300AA856C /* GoogleService-Info.plist */; };
+		D3DB10C12C70074300AA856C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D3DB10BE2C70074300AA856C /* GoogleService-Info.plist */; };
+		D3DB10C42C7009AD00AA856C /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = D3DB10C32C7009AD00AA856C /* FirebaseAnalytics */; };
+		D3DB10C62C7009AD00AA856C /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D3DB10C52C7009AD00AA856C /* FirebaseAuth */; };
+		D3DB10C82C7009AD00AA856C /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = D3DB10C72C7009AD00AA856C /* FirebaseDatabase */; };
+		D3DB10CA2C7009AD00AA856C /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D3DB10C92C7009AD00AA856C /* FirebaseFirestore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +51,7 @@
 		D3DB10AB2C7004FE00AA856C /* McFitSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = McFitSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3DB10AF2C7004FE00AA856C /* McFitSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = McFitSwiftUITests.swift; sourceTree = "<group>"; };
 		D3DB10B12C7004FE00AA856C /* McFitSwiftUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = McFitSwiftUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D3DB10BE2C70074300AA856C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +59,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3DB10C82C7009AD00AA856C /* FirebaseDatabase in Frameworks */,
+				D3DB10CA2C7009AD00AA856C /* FirebaseFirestore in Frameworks */,
+				D3DB10C42C7009AD00AA856C /* FirebaseAnalytics in Frameworks */,
+				D3DB10C62C7009AD00AA856C /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +108,7 @@
 			children = (
 				D3DB10942C7004FC00AA856C /* McFitSwiftApp.swift */,
 				D3DB10962C7004FC00AA856C /* ContentView.swift */,
+				D3DB10BE2C70074300AA856C /* GoogleService-Info.plist */,
 				D3DB10982C7004FE00AA856C /* Assets.xcassets */,
 				D3DB109A2C7004FE00AA856C /* Preview Content */,
 			);
@@ -143,6 +156,12 @@
 			dependencies = (
 			);
 			name = McFitSwift;
+			packageProductDependencies = (
+				D3DB10C32C7009AD00AA856C /* FirebaseAnalytics */,
+				D3DB10C52C7009AD00AA856C /* FirebaseAuth */,
+				D3DB10C72C7009AD00AA856C /* FirebaseDatabase */,
+				D3DB10C92C7009AD00AA856C /* FirebaseFirestore */,
+			);
 			productName = McFitSwift;
 			productReference = D3DB10912C7004FC00AA856C /* McFitSwift.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +234,9 @@
 				Base,
 			);
 			mainGroup = D3DB10882C7004FB00AA856C;
+			packageReferences = (
+				D3DB10C22C7009AC00AA856C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = D3DB10922C7004FC00AA856C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -233,6 +255,7 @@
 			files = (
 				D3DB109C2C7004FE00AA856C /* Preview Assets.xcassets in Resources */,
 				D3DB10992C7004FE00AA856C /* Assets.xcassets in Resources */,
+				D3DB10BF2C70074300AA856C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,6 +263,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3DB10C02C70074300AA856C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,6 +271,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3DB10C12C70074300AA856C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,11 +450,14 @@
 				DEVELOPMENT_TEAM = Q4ND4YLJNG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = McFitSwift;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -454,11 +482,14 @@
 				DEVELOPMENT_TEAM = Q4ND4YLJNG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = McFitSwift;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -588,6 +619,40 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D3DB10C22C7009AC00AA856C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D3DB10C32C7009AD00AA856C /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D3DB10C22C7009AC00AA856C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		D3DB10C52C7009AD00AA856C /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D3DB10C22C7009AC00AA856C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		D3DB10C72C7009AD00AA856C /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D3DB10C22C7009AC00AA856C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		D3DB10C92C7009AD00AA856C /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D3DB10C22C7009AC00AA856C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D3DB10892C7004FB00AA856C /* Project object */;
 }
