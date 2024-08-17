@@ -21,6 +21,7 @@
 		D3DB10C62C7009AD00AA856C /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D3DB10C52C7009AD00AA856C /* FirebaseAuth */; };
 		D3DB10C82C7009AD00AA856C /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = D3DB10C72C7009AD00AA856C /* FirebaseDatabase */; };
 		D3DB10CA2C7009AD00AA856C /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D3DB10C92C7009AD00AA856C /* FirebaseFirestore */; };
+		D3E1D5952C703581001CFFA3 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E1D5942C703581001CFFA3 /* HomeScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,8 @@
 		D3DB10AF2C7004FE00AA856C /* McFitSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = McFitSwiftUITests.swift; sourceTree = "<group>"; };
 		D3DB10B12C7004FE00AA856C /* McFitSwiftUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = McFitSwiftUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D3DB10BE2C70074300AA856C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D3E1D5942C703581001CFFA3 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; tabWidth = 3; };
+		D3E1D5962C703E2A001CFFA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,8 +109,10 @@
 		D3DB10932C7004FC00AA856C /* McFitSwift */ = {
 			isa = PBXGroup;
 			children = (
+				D3E1D5962C703E2A001CFFA3 /* Info.plist */,
 				D3DB10942C7004FC00AA856C /* McFitSwiftApp.swift */,
 				D3DB10962C7004FC00AA856C /* ContentView.swift */,
+				D3E1D5942C703581001CFFA3 /* HomeScreen.swift */,
 				D3DB10BE2C70074300AA856C /* GoogleService-Info.plist */,
 				D3DB10982C7004FE00AA856C /* Assets.xcassets */,
 				D3DB109A2C7004FE00AA856C /* Preview Content */,
@@ -284,6 +289,7 @@
 			files = (
 				D3DB10972C7004FC00AA856C /* ContentView.swift in Sources */,
 				D3DB10952C7004FC00AA856C /* McFitSwiftApp.swift in Sources */,
+				D3E1D5952C703581001CFFA3 /* HomeScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,12 +456,12 @@
 				DEVELOPMENT_TEAM = Q4ND4YLJNG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = McFitSwift/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = McFitSwift;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -482,12 +488,12 @@
 				DEVELOPMENT_TEAM = Q4ND4YLJNG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = McFitSwift/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = McFitSwift;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
