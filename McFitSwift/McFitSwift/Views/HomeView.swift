@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  HomeView.swift
 //  McFitSwift
 //
 //  Created by Kristina Litvinova on 17.08.2024.
@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
+    let todayCourses = ["Yoga", "Boxing"]
     var body: some View {
         ZStack{
             RadialGradient(colors: [Color.mcsPurple, Color.mcsDarkPurple], center: .topLeading, startRadius: 1, endRadius: 735)
@@ -24,22 +25,34 @@ struct HomeView: View {
                     }
                     .padding(7)
                 }
-                .frame(width:360)
+                .padding(EdgeInsets(top: 5, leading: 15, bottom: 5, trailing: 15))
                 .backgroundStyle(Color.init(uiColor: .systemGray6))
                 
                 GroupBox {
-                        VStack(alignment: .leading){
+                    VStack(alignment: .leading){
+                        HStack{
                             Label("Courses", systemImage: "figure.mind.and.body")
                                 .font(.title3.bold())
                                 .foregroundColor(.cyan)
+                            Spacer()
+                            Text("Monday")
+                                .font(.callout)
                         }
-                    HStack{//This needs to be connected to a model, just a placeholder for now. Also has to lead to child view of full schedule
                         
-                        
+                        VStack{//This needs to be connected to a model, just a placeholder for now. Also has to lead to child view of full schedule
+                            ForEach(todayCourses, id: \.self) {course in
+                                HStack{
+                                    
+                                    Text("●" + course)
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                }
+                            }
+                            
+                        }
+                        .padding(7)
                     }
-                    .padding(7)
                 }
-                .frame(idealWidth: 360)
+                .padding(EdgeInsets(top: 5, leading: 15, bottom: 5, trailing: 15))
                 .backgroundStyle(Color.init(uiColor: .systemGray6))
                 
             }

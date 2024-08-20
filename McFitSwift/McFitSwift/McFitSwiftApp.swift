@@ -26,9 +26,10 @@ struct YourApp: App {
 
   var body: some Scene {
     WindowGroup {
-      NavigationView {
-        HomeView()
-      }
+     // NavigationView {
+        //HomeView()
+          PostsList()
+      //jhbgvgbhnjdd}
     }
   }
 }

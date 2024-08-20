@@ -1,5 +1,5 @@
 //
-//  LaunchScreen.swift
+//  LoginView.swift
 //  McFitSwift
 //
 //  Created by Kristina Litvinova on 17.08.2024.
@@ -28,18 +28,28 @@ struct LoginView: View {
                         .font(.title.bold())
                         .foregroundStyle(Color.white)
                 }
-                .padding(EdgeInsets(top: 40, leading: 0, bottom: 50, trailing: 0))
+                .padding(EdgeInsets(top: 50, leading: 0, bottom: 80, trailing: 0))
                 
                 
-                GroupBox ("Log in"){
-                    InputFieldView(data: $email, title: "Email")
-                        .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
-                    
-                    InputFieldView(data: $password, title: "Password")
-                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
-                    
-                 
+                
+                GroupBox {
+                    VStack {
+                        Text("Login")
+                            .font(.title3)
+                            .fontWeight(.black)
+                            .padding(EdgeInsets(top: 5, leading: 10, bottom: 0, trailing: 0))
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                           
+                        InputFieldView(data: $email, title: "Email")
+                            .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
+                        
+                        InputFieldView(data: $password, title: "Password")
+                            .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
+                        
+                     
+                    }
                 }
+                
                 .padding()
                 
                 //can and must be done by custom view for buttons
@@ -53,7 +63,7 @@ struct LoginView: View {
                         .background(Color.contrastButton)
                         .cornerRadius(60)
                 }
-                .padding(EdgeInsets(top: 30, leading: 40, bottom: 0, trailing: 40))
+                .padding(EdgeInsets(top: 60, leading: 40, bottom: 0, trailing: 40))
                 
                 Button(action: {}){
                     Text("Sign Up")
@@ -64,7 +74,7 @@ struct LoginView: View {
                         .foregroundColor(Color.white)
                         .cornerRadius(60)
                 }
-                .padding(EdgeInsets(top: 0, leading: 40, bottom: 40, trailing: 40))
+                .padding(EdgeInsets(top: 0, leading: 40, bottom: 20, trailing: 40))
                 
             
                 Spacer()
