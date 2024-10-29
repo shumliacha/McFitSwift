@@ -25,14 +25,12 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct McFitSwiftApp: App {
   // register app delegate for Firebase setup
   @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-
+//OR
+//init() {FirebaseApp.configure()}
 
   var body: some Scene {
     WindowGroup {
-     // NavigationView {
-        //HomeView()
-          PostsList()
-      //}
+        LoginView()
     }
   }
 }

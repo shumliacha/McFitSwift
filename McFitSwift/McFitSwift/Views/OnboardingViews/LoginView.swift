@@ -3,93 +3,108 @@
 //  McFitSwift
 //
 //  Created by Kristina Litvinova on 17.08.2024.
+
+// TO DO
+// remove uppercase
+//
+//
 //
 
 import SwiftUI
 
 struct LoginView: View {
-    @State private var email = "some@example.com"
-    @State private var password = "123456789"
-    //@State private var isSecured: Bool = true
+    @StateObject var viewModel = AuthViewModel()
+
     
     
     var body: some View {
-        ZStack{
-            RadialGradient(colors: [Color.mcsPurple, Color.mcsDarkPurple], center: .topLeading, startRadius: -150, endRadius: 900)                .ignoresSafeArea()
-            VStack {
-                Spacer()
-
-                HStack{
-                    Image("AppIconM")
-                        .resizable()
-                        .frame(width: 90, height: 90)
+        if viewModel.isAuthenticated {
+            
+            //VIEW ON LOAD IF AUTH IS FINE
+            
+            HomeView()
+        } else {
+            ZStack{
+                RadialGradient(colors: [Color.mcsPurple, Color.mcsDarkPurple], center: .topLeading, startRadius: -150, endRadius: 900)                .ignoresSafeArea()
+                VStack {
+                    Spacer()
                     
-                    Text("McFitSwift")
-                        .font(.title.bold())
-                        .foregroundStyle(Color.white)
-                }
-                .padding(EdgeInsets(top: 50, leading: 0, bottom: 80, trailing: 60))
-                
-                
-                
-                GroupBox {
-                    VStack {
-                        Text("Login")
-                            .font(.title3)
-                            .fontWeight(.black)
-                            .padding(EdgeInsets(top: 5, leading: 10, bottom: 0, trailing: 0))
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                           
-                        InputFieldView(data: $email, title: "Email")
-                            .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
+                    HStack{
+                        Image("AppIconM")
+                            .resizable()
+                            .frame(width: 90, height: 90)
                         
-                        InputFieldView(data: $password, title: "Password")
-                            .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
-                        
-                     
+                        Text("McFitSwift")
+                            .font(.title.bold())
+                            .foregroundStyle(Color.white)
                     }
-                }
-                
-                .padding()
-                
-                //can and must be done by custom view for buttons
-                Button(action: {}){
-                    Text("Sign In")
-                        .fontWeight(.heavy)
+                    .padding(EdgeInsets(top: 50, leading: 0, bottom: 80, trailing: 60))
+                    
+                    
+                    
+                    GroupBox {
+                        VStack {
+                            Text("Login")
+                                .font(.title3)
+                                .fontWeight(.black)
+                                .padding(EdgeInsets(top: 5, leading: 10, bottom: 0, trailing: 0))
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                            
+                            InputFieldView(data: $viewModel.email, title: "Email")
+                                .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
+                            
+                            InputFieldView(data: $viewModel.password, title: "Password")
+                                .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
+                            
+                            
+                        }
+                    }
+                    
+                    .padding()
+                    
+                    //can and must be done by custom view for buttons
+                    Button(action: {
+                        viewModel.signIn()
+                    }){
+                        Text("Sign In")
+                            .fontWeight(.heavy)
+                            .font(.callout)
+                            .frame(maxWidth: .infinity)
+                            .padding(15)
+                            .foregroundColor(Color.systemTextBlack)
+                            .background(Color.contrastButton)
+                            .cornerRadius(60)
+                    }
+                    .padding(EdgeInsets(top: 60, leading: 40, bottom: 0, trailing: 40))
+                    
+                    Button(action: {
+                        // send to sign up view
+                    }){
+                        Text("Sign Up")
+                            .fontWeight(.semibold)
+                            .font(.callout)
+                            .frame(maxWidth: .infinity)
+                            .padding(15)
+                            .foregroundColor(Color.white)
+                            .cornerRadius(60)
+                    }
+                    .padding(EdgeInsets(top: 0, leading: 40, bottom: 20, trailing: 40))
+                    
+                    
+                    Spacer()
+                    
+                    Text("Developed by shumliacha for learning purposes")
                         .font(.callout)
-                        .frame(maxWidth: .infinity)
-                        .padding(15)
-                        .foregroundColor(Color.systemTextBlack)
-                        .background(Color.contrastButton)
-                        .cornerRadius(60)
-                }
-                .padding(EdgeInsets(top: 60, leading: 40, bottom: 0, trailing: 40))
-                
-                Button(action: {}){
-                    Text("Sign Up")
-                        .fontWeight(.semibold)
+                        .foregroundStyle(Color.mcsPurple)
+                    Text("please don't sue me, McFit T-T")
                         .font(.callout)
-                        .frame(maxWidth: .infinity)
-                        .padding(15)
-                        .foregroundColor(Color.white)
-                        .cornerRadius(60)
+                        .foregroundStyle(Color.mcsPurple)
                 }
-                .padding(EdgeInsets(top: 0, leading: 40, bottom: 20, trailing: 40))
-                
+                .frame(maxWidth: 700)
+            }
             
-                Spacer()
-                
-                Text("Developed by shumliacha for learning purposes")
-                    .font(.callout)
-                    .foregroundStyle(Color.mcsPurple)
-                Text("please don't sue me, McFit T-T")
-                    .font(.callout)
-                    .foregroundStyle(Color.mcsPurple)
-                    }
-                        .frame(maxWidth: 700)
-                    }
             
-        
+        }
     }
 }
 

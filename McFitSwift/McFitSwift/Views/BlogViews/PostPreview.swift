@@ -70,10 +70,11 @@ struct PostPreview: View {
                 }
                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 5, trailing: 0))
             }
-            .listRowBackground(ZStack{
+            .listRowBackground(
+                ZStack{
                 Image("testImage")
                     .resizable()
-                    .frame(width: .infinity, height: 200, alignment: .center)
+                    .frame(width: 800, height: 200, alignment: .center)
                     .scaledToFit()
                     .clipped()
                     .clipShape(RoundedRectangle(cornerRadius: 5.5))

@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import Firebase
 
-struct BlogPost: Identifiable { //for uuid for lists and foreach
+struct BlogPost: Identifiable, Codable { //for uuid for lists and foreach, for urls
     var title: String
     var authorName: String
     //var banner: String //leave out for now, I need to add async await and main actor for it
@@ -36,7 +36,7 @@ struct BlogPost: Identifiable { //for uuid for lists and foreach
     }
 }
 
-struct BlogContent {
+struct BlogContent: Codable {
     var intro: String //add divider after an intro
     var text1: String
     var text2: String?
@@ -50,7 +50,7 @@ struct BlogContent {
     var photo4: String?
 }
 
-enum Tags{
+enum Tags: Codable {
     case nutrition
     case mentalHealth
     case coachAdvice
