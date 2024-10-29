@@ -10,7 +10,10 @@ import SwiftUI
 struct PostRow: View {
     
     let post: BlogPost
+    //GIRL WHAT ARE YOU DOING
         
+    //Custom modifier for different views - grid or list
+    //make this a supporting view to use in lists and grids
      var body: some View {
          VStack (alignment: .leading){
                         ZStack {
@@ -69,9 +72,10 @@ struct PostRow: View {
              }
              .frame(maxWidth: .infinity, alignment: .center)
                         Text(post.content.text1)
-                            .padding(25)
+            //.padding(25)
+            .padding(EdgeInsets(top: 100, leading: 25, bottom: 0, trailing: 25))
                     }
-                    //.padding(20)
+                    
     
         
        // RadialGradient(colors: [Color.mcsPurple, Color.mcsDarkPurple], center: .topLeading, startRadius: -150, endRadius: 900)                .ignoresSafeArea()

@@ -56,6 +56,7 @@ enum Tags{
     case coachAdvice
     case weeklyMusic
     case updates
+    case thoughts
     
     var info: (name: String, color: Color) {
         switch self {
@@ -69,6 +70,8 @@ enum Tags{
             return ("Updates", Color.red)
         case .weeklyMusic:
             return ("Weekly Playlist", Color.teal)
+        case .thoughts:
+            return ("Thoughts", Color.yellow)
                 }
     }
     // access like this let errorCode = myErrorType.info.code

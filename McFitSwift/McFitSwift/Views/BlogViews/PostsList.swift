@@ -10,6 +10,7 @@ import SwiftUI
 struct PostsList: View {
     
     @State private var searchText = ""
+    
     private var posts = [BlogPost.testPost]
     
      var body: some View {
@@ -17,9 +18,8 @@ struct PostsList: View {
                 List (posts) { post in
                     if searchText.isEmpty || post.contains(searchText) {
                         PostPreview(post: post)
+                        //show only searched for posts if searched
                     }
-                    //PostPreview(post: post)
-                    //PostRow(post: post)
                 }
                 .searchable(text: $searchText)
             

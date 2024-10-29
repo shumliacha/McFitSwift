@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct HomeView: View {
+    
     let todayCourses = ["Yoga", "Boxing"]
+    
     var body: some View {
         ZStack{
             RadialGradient(colors: [Color.mcsPurple, Color.mcsDarkPurple], center: .topLeading, startRadius: 1, endRadius: 735)

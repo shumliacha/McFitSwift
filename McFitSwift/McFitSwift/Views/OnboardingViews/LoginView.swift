@@ -28,7 +28,7 @@ struct LoginView: View {
                         .font(.title.bold())
                         .foregroundStyle(Color.white)
                 }
-                .padding(EdgeInsets(top: 50, leading: 0, bottom: 80, trailing: 0))
+                .padding(EdgeInsets(top: 50, leading: 0, bottom: 80, trailing: 60))
                 
                 
                 
@@ -78,6 +78,7 @@ struct LoginView: View {
                 
             
                 Spacer()
+                
                 Text("Developed by shumliacha for learning purposes")
                     .font(.callout)
                     .foregroundStyle(Color.mcsPurple)
@@ -85,7 +86,10 @@ struct LoginView: View {
                     .font(.callout)
                     .foregroundStyle(Color.mcsPurple)
                     }
-        }
+                        .frame(maxWidth: 700)
+                    }
+            
+        
     }
 }
 

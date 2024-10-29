@@ -10,9 +10,45 @@ import SwiftUI
 
 struct PostPreview: View {
     
-    let post: BlogPost
+   // @StateObject var post = BlogData()
+    var post = BlogPost.testPost //for tsting only
+    
+    //try to create some custom modifiers to lighten up code, maube combined with PostRow ones
     
     var body: some View {
+        
+        /*
+        
+        ZStack{
+            
+            TextField("", text: $data)
+                .padding(.horizontal, 10)
+                .frame(height: 42)
+                .overlay( //owwww, sth new
+                    RoundedRectangle(cornerSize: CGSize(width: 4, height: 4))
+                        .stroke(Color.gray, lineWidth: 1)
+                    )
+            
+            HStack{
+                Text(title ?? "Input")
+                    .font(.headline)
+                    .fontWeight(.medium)
+                    .foregroundStyle(Color.gray)
+                    .multilineTextAlignment(.leading)
+                    .padding(4)
+                    .background()
+                Spacer()
+            }
+            .padding(.leading, 8)
+            .offset(CGSize(width: 0, height: -20))
+        }
+        
+        
+        */
+        
+        
+        
+
             VStack(alignment: .leading) {
                 Spacer()
                 Text(post.title)
@@ -37,8 +73,8 @@ struct PostPreview: View {
             .listRowBackground(ZStack{
                 Image("testImage")
                     .resizable()
-                    .scaledToFill()
                     .frame(width: .infinity, height: 200, alignment: .center)
+                    .scaledToFit()
                     .clipped()
                     .clipShape(RoundedRectangle(cornerRadius: 5.5))
                     //.backgroundStyle(Color.black)
@@ -48,8 +84,9 @@ struct PostPreview: View {
                     .clipShape(RoundedRectangle(cornerRadius: 5.5))
             })
     }
+    
 }
 
 #Preview {
-        PostPreview(post: BlogPost.testPost)
+    PostPreview(post: BlogPost.testPost)
 }
