@@ -44,6 +44,8 @@ struct LoginView: View {
                     GroupBox {
                         VStack {
                             Text("Login")
+// OMG AM I BLIND
+// Sign Up view should be here the fs
                                 .font(.title3)
                                 .fontWeight(.black)
                                 .padding(EdgeInsets(top: 5, leading: 10, bottom: 0, trailing: 0))

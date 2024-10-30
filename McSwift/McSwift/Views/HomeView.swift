@@ -47,46 +47,7 @@ struct HomeView: View {
                     
                 }
                 .navigationTitle("Home")
-                
-                .toolbar {
-                            ToolbarItemGroup(placement: .bottomBar) {
-                                
-                                Spacer()
-                                        
-                                Button {
-                                    print("Pressed")
-                                } label: {
-                                    Image(systemName: "lightbulb")
-                                }
-                                
-                                Spacer()
-                                
-                                Button {
-                                    print("Pressed")
-                                } label: {
-                                    Image(systemName: "house")
-                                }
-                                
-                                
-                                Spacer()
-
-                                Button {
-                                    print("Pressed")
-                                } label: {
-                                    Image(systemName: "person.crop.circle")
-                                }
-                                
-                                Spacer()
-                            }
-
-                }
-                .navigationViewStyle(StackNavigationViewStyle())
-                .toolbarBackground(Color(.systemBackgroundWhite), for: .bottomBar)
-                .toolbarBackground(.visible, for: .bottomBar)
-                                
-                
             }
-            //.navigationBarTitleDisplayMode(.inline)
             .navigationBarTitleDisplayMode(.large)
         }
     }
