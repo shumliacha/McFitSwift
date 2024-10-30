@@ -12,12 +12,13 @@ struct InputFieldView: View { //https://ix76y.medium.com/create-a-login-page-in-
     
     @Binding var data: String //this prwrapper  cause this property wil be passed and changed later
     var title: String?
-    var isSecured: Bool
+    
+    @State var isSecuredNow = true
+    @State var isSecured: Bool
     
     var body: some View {
         ZStack {
-            HStack {
-                if isSecured {
+                if isSecuredNow == isSecured {
                     SecureField("", text: $data)
                         .padding(.horizontal, 10)
                         .frame(height: 42)
@@ -36,12 +37,6 @@ struct InputFieldView: View { //https://ix76y.medium.com/create-a-login-page-in-
                 }
                 Spacer()
                 
-                if isSecured {
-                    Image(systemName: self.isSecured ? "eye.slash" : "eye")
-                        .accentColor(.gray)
-                }
-            }
-                
             HStack{
                 Text(title ?? "Input")
                     .font(.headline)
@@ -56,6 +51,22 @@ struct InputFieldView: View { //https://ix76y.medium.com/create-a-login-page-in-
             .padding(.leading, 8)
             
             .offset(CGSize(width: 0, height: -20))
+            
+            if isSecured {
+                HStack{
+                    Spacer()
+                    Button(action: {
+                        isSecuredNow.toggle()
+                    }) {
+                        Image(systemName: self.isSecured ? "eye.slash" : "eye")
+                            .accentColor(.gray)
+                    }
+                    .padding(EdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5))
+                    .background()
+                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 5))
+                }
+            }
+
         }
         .padding(4)
         .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
@@ -66,5 +77,5 @@ struct InputFieldView: View { //https://ix76y.medium.com/create-a-login-page-in-
 #Preview {
     @Previewable @State var value: String = "blablabla"
 
-    InputFieldView(data: $value, title: "Email", isSecured: true)
+    InputFieldView(data: $value, title: "Email", isSecured: false)
 }
