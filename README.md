@@ -1,7 +1,7 @@
-# McFitSwift
+# McSwift
 
 
-McFitSwift is a pet project aimed at reimagining an existing app of an existing gym but as a native iOS App. Application utilzes MVVM Architecture, SwiftUI, Firebase for cloud storage and authentication. 
+McSwift is a pet project aimed at reimagining an existing app of an existing gym but as a native iOS App. Application utilzes MVVM Architecture, SwiftUI, Firebase for cloud storage and authentication. 
 
 ### Features
 
