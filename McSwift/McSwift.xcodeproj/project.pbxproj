@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D306BD912CD224E90023AF9C /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D306BD902CD224E90023AF9C /* UserData.swift */; };
+		D306BD932CD228720023AF9C /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D306BD922CD228720023AF9C /* UserService.swift */; };
 		D31D4E072C7263C2008F4CEE /* PostsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31D4E062C7263C2008F4CEE /* PostsList.swift */; };
 		D31D4E0F2C73B184008F4CEE /* BlogPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31D4E0E2C73B184008F4CEE /* BlogPost.swift */; };
 		D31D4E152C740799008F4CEE /* PostRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31D4E142C740799008F4CEE /* PostRow.swift */; };
@@ -30,7 +32,6 @@
 		D3E1D5952C703581001CFFA3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E1D5942C703581001CFFA3 /* LoginView.swift */; };
 		D3EC95E42CD1433E00D5D103 /* BlogRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EC95E32CD1433300D5D103 /* BlogRepository.swift */; };
 		D3F989DF2C8D6AA60055253A /* BlogData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F989DE2C8D6AA60055253A /* BlogData.swift */; };
-		D3F989E12C8D6B3C0055253A /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F989E02C8D6B3C0055253A /* MainTabView.swift */; };
 		D3F989E32C8DC79B0055253A /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F989E22C8DC79B0055253A /* AuthService.swift */; };
 		D3F989E62C9AAC180055253A /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F989E52C9AAC180055253A /* Loadable.swift */; };
 		D3F989E82C9AACF80055253A /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F989E72C9AACF80055253A /* AuthViewModel.swift */; };
@@ -55,6 +56,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D306BD902CD224E90023AF9C /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		D306BD922CD228720023AF9C /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		D31D4E062C7263C2008F4CEE /* PostsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsList.swift; sourceTree = "<group>"; };
 		D31D4E0B2C73AEF0008F4CEE /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D31D4E0C2C73AEFE008F4CEE /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -79,7 +82,6 @@
 		D3E1D5962C703E2A001CFFA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D3EC95E32CD1433300D5D103 /* BlogRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogRepository.swift; sourceTree = "<group>"; };
 		D3F989DE2C8D6AA60055253A /* BlogData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogData.swift; sourceTree = "<group>"; };
-		D3F989E02C8D6B3C0055253A /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		D3F989E22C8DC79B0055253A /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		D3F989E52C9AAC180055253A /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
 		D3F989E72C9AACF80055253A /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
@@ -119,7 +121,6 @@
 			isa = PBXGroup;
 			children = (
 				D3DB10962C7004FC00AA856C /* HomeView.swift */,
-				D3F989E02C8D6B3C0055253A /* MainTabView.swift */,
 				D3F989EF2C9B17060055253A /* SupportingViews */,
 				D31D4E182C7410D8008F4CEE /* BlogViews */,
 				D31D4E192C742CAB008F4CEE /* OnboardingViews */,
@@ -131,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				D31D4E0E2C73B184008F4CEE /* BlogPost.swift */,
+				D306BD902CD224E90023AF9C /* UserData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -243,6 +245,7 @@
 				D3EC95E32CD1433300D5D103 /* BlogRepository.swift */,
 				D3F989E22C8DC79B0055253A /* AuthService.swift */,
 				D3F989E52C9AAC180055253A /* Loadable.swift */,
+				D306BD922CD228720023AF9C /* UserService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -397,7 +400,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3F989DF2C8D6AA60055253A /* BlogData.swift in Sources */,
-				D3F989E12C8D6B3C0055253A /* MainTabView.swift in Sources */,
+				D306BD932CD228720023AF9C /* UserService.swift in Sources */,
 				D31D4E0F2C73B184008F4CEE /* BlogPost.swift in Sources */,
 				D31D4E152C740799008F4CEE /* PostRow.swift in Sources */,
 				D31D4E072C7263C2008F4CEE /* PostsList.swift in Sources */,
@@ -409,6 +412,7 @@
 				D3F989E62C9AAC180055253A /* Loadable.swift in Sources */,
 				D31D4E172C74107A008F4CEE /* PostPreview.swift in Sources */,
 				D3DB10952C7004FC00AA856C /* McSwiftApp.swift in Sources */,
+				D306BD912CD224E90023AF9C /* UserData.swift in Sources */,
 				D3F989E32C8DC79B0055253A /* AuthService.swift in Sources */,
 				D31D4E1B2C742DD8008F4CEE /* SignUpView.swift in Sources */,
 				D3E1D5952C703581001CFFA3 /* LoginView.swift in Sources */,
