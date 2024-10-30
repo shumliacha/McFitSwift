@@ -10,6 +10,8 @@
 		D306BD912CD224E90023AF9C /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D306BD902CD224E90023AF9C /* UserData.swift */; };
 		D306BD932CD228720023AF9C /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D306BD922CD228720023AF9C /* UserService.swift */; };
 		D306BD972CD2914F0023AF9C /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D306BD962CD2914F0023AF9C /* MainTabView.swift */; };
+		D31D0E412CD2C5BF0017B489 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D31D0E402CD2C5BF0017B489 /* GoogleService-Info.plist */; };
+		D31D0E432CD2C96A0017B489 /* InputFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31D0E422CD2C96A0017B489 /* InputFieldView.swift */; };
 		D31D4E072C7263C2008F4CEE /* PostsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31D4E062C7263C2008F4CEE /* PostsList.swift */; };
 		D31D4E0F2C73B184008F4CEE /* BlogPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31D4E0E2C73B184008F4CEE /* BlogPost.swift */; };
 		D31D4E152C740799008F4CEE /* PostRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31D4E142C740799008F4CEE /* PostRow.swift */; };
@@ -24,9 +26,6 @@
 		D3DB10A62C7004FE00AA856C /* McSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DB10A52C7004FE00AA856C /* McSwiftTests.swift */; };
 		D3DB10B02C7004FE00AA856C /* McSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DB10AF2C7004FE00AA856C /* McSwiftUITests.swift */; };
 		D3DB10B22C7004FE00AA856C /* McSwiftUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DB10B12C7004FE00AA856C /* McSwiftUITestsLaunchTests.swift */; };
-		D3DB10BF2C70074300AA856C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D3DB10BE2C70074300AA856C /* GoogleService-Info.plist */; };
-		D3DB10C02C70074300AA856C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D3DB10BE2C70074300AA856C /* GoogleService-Info.plist */; };
-		D3DB10C12C70074300AA856C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D3DB10BE2C70074300AA856C /* GoogleService-Info.plist */; };
 		D3DB10C42C7009AD00AA856C /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = D3DB10C32C7009AD00AA856C /* FirebaseAnalytics */; };
 		D3DB10C62C7009AD00AA856C /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D3DB10C52C7009AD00AA856C /* FirebaseAuth */; };
 		D3DB10C82C7009AD00AA856C /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = D3DB10C72C7009AD00AA856C /* FirebaseDatabase */; };
@@ -61,10 +60,9 @@
 		D306BD902CD224E90023AF9C /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		D306BD922CD228720023AF9C /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		D306BD962CD2914F0023AF9C /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		D31D0E402CD2C5BF0017B489 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D31D0E422CD2C96A0017B489 /* InputFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldView.swift; sourceTree = "<group>"; };
 		D31D4E062C7263C2008F4CEE /* PostsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsList.swift; sourceTree = "<group>"; };
-		D31D4E0B2C73AEF0008F4CEE /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		D31D4E0C2C73AEFE008F4CEE /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
-		D31D4E0D2C73AF18008F4CEE /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D31D4E0E2C73B184008F4CEE /* BlogPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogPost.swift; sourceTree = "<group>"; };
 		D31D4E142C740799008F4CEE /* PostRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRow.swift; sourceTree = "<group>"; };
 		D31D4E162C74107A008F4CEE /* PostPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPreview.swift; sourceTree = "<group>"; };
@@ -81,7 +79,6 @@
 		D3DB10AB2C7004FE00AA856C /* McSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = McSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3DB10AF2C7004FE00AA856C /* McSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = McSwiftUITests.swift; sourceTree = "<group>"; };
 		D3DB10B12C7004FE00AA856C /* McSwiftUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = McSwiftUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		D3DB10BE2C70074300AA856C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D3E1D5942C703581001CFFA3 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; tabWidth = 3; };
 		D3E1D5962C703E2A001CFFA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D3EC95E32CD1433300D5D103 /* BlogRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogRepository.swift; sourceTree = "<group>"; };
@@ -146,10 +143,8 @@
 		D31D4E0A2C73AEC7008F4CEE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D31D0E402CD2C5BF0017B489 /* GoogleService-Info.plist */,
 				D3DB10982C7004FE00AA856C /* Assets.xcassets */,
-				D31D4E0B2C73AEF0008F4CEE /* GoogleService-Info.plist */,
-				D31D4E0C2C73AEFE008F4CEE /* GoogleService-Info.plist */,
-				D31D4E0D2C73AF18008F4CEE /* GoogleService-Info.plist */,
 				D3DB109A2C7004FE00AA856C /* Preview Content */,
 			);
 			path = Resources;
@@ -215,7 +210,6 @@
 				D3F989E42C8DC7B90055253A /* Service */,
 				D31D4E092C73AEBF008F4CEE /* Models */,
 				D31D4E0A2C73AEC7008F4CEE /* Resources */,
-				D3DB10BE2C70074300AA856C /* GoogleService-Info.plist */,
 			);
 			path = McSwift;
 			sourceTree = "<group>";
@@ -259,6 +253,7 @@
 		D3F989EF2C9B17060055253A /* SupportingViews */ = {
 			isa = PBXGroup;
 			children = (
+				D31D0E422CD2C96A0017B489 /* InputFieldView.swift */,
 			);
 			path = SupportingViews;
 			sourceTree = "<group>";
@@ -377,8 +372,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3DB109C2C7004FE00AA856C /* Preview Assets.xcassets in Resources */,
+				D31D0E412CD2C5BF0017B489 /* GoogleService-Info.plist in Resources */,
 				D3DB10992C7004FE00AA856C /* Assets.xcassets in Resources */,
-				D3DB10BF2C70074300AA856C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,7 +381,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3DB10C02C70074300AA856C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,7 +388,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3DB10C12C70074300AA856C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,6 +416,7 @@
 				D3F989E32C8DC79B0055253A /* AuthService.swift in Sources */,
 				D3250E562CD29831005213AB /* ProfileView.swift in Sources */,
 				D31D4E1B2C742DD8008F4CEE /* SignUpView.swift in Sources */,
+				D31D0E432CD2C96A0017B489 /* InputFieldView.swift in Sources */,
 				D3E1D5952C703581001CFFA3 /* LoginView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -591,7 +585,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = McSwift/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = McFitSwift;
+				INFOPLIST_KEY_CFBundleDisplayName = McSwift;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -623,7 +617,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = McSwift/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = McFitSwift;
+				INFOPLIST_KEY_CFBundleDisplayName = McSwift;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

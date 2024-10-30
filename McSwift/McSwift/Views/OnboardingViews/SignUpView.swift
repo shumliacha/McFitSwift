@@ -11,37 +11,94 @@ struct SignUpView: View {
     @StateObject var viewModel = AuthViewModel()
     
     var body: some View {
-        Text("OH")
-//        Form {
-//            TextField("First Name", text: $viewModel.name)
-//                .textContentType(.name)
-//                .textInputAutocapitalization(.words)
-//            
-//            TextField("Last Name", text: $viewModel.name)
-//                .textContentType(.name)
-//                .textInputAutocapitalization(.words)
-//            
-//            TextField("Email", text: $viewModel.email)
-//                .textContentType(.emailAddress)
-//                .textInputAutocapitalization(.never)
-//            
-//            SecureField("Password", text: $viewModel.password)
-//                .textContentType(.newPassword)
-//            
-//            Button("Sign In", action: viewModel.signIn)
-//                .padding()
-//                .onSubmit(viewModel.submit)
-//            //.alert("Cannot Create Account", error: $viewModel.error)
-//                .disabled(viewModel.isWorking)
-//        }
+        
+        ZStack {
+            
+            RadialGradient(colors: [Color.mcsPurple, Color.mcsDarkPurple], center: .topLeading, startRadius: -150, endRadius: 900)                .ignoresSafeArea()
+            
+            VStack(alignment: .center){
+                
+                HStack {
+                    Image("AppIconM")
+                        .resizable()
+                        .frame(width: 50, height: 50)
+                    
+                    Text("McSwift")
+                        .font(.title.bold())
+                        .foregroundStyle(Color.white)
+                }
+                .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 20))
+                
+                
+                
+                GroupBox {
+                    ScrollView {
+                        VStack {
+                            Text("Create an Account")
+                            // OMG AM I BLIND
+                            // Sign Up view should be here the fs
+                                .font(.title3)
+                                .fontWeight(.bold)
+                                .padding(EdgeInsets(top: 5, leading: 10, bottom: 0, trailing: 0))
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                            
+                            InputFieldView(data: $viewModel.email, title: "Email", isSecured: false)
+                                .textContentType(.emailAddress)
+                                .textInputAutocapitalization(.never)
+                                .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
+                            
+                            InputFieldView(data: $viewModel.password, title: "Password", isSecured: true)
+                                .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
+                                .textContentType(.newPassword)
+                                .textInputAutocapitalization(.never)
+                            
+                            
+                        }
+                    }
+                }
+                
+                .padding()
+                
+                //can and must be done by custom view for buttons
+                Button(action: {
+                    viewModel.signIn()
+                }){
+                    Text("Sign In")
+                        .fontWeight(.heavy)
+                        .font(.callout)
+                        .frame(maxWidth: .infinity)
+                        .padding(15)
+                        .foregroundColor(Color.systemTextBlack)
+                        .background(Color.contrastButton)
+                        .cornerRadius(60)
+                }
+                .padding(EdgeInsets(top: 60, leading: 40, bottom: 0, trailing: 40))
+                
+                
+                Spacer()
+                
+                Button {
+                    print("Create PRESSED")
+                } label: {
+                    Text("Create an Account")
+                        .fontWeight(.semibold)
+                        .font(.callout)
+                        .foregroundColor(Color.white)
+                }
+                .ignoresSafeArea()
+                
+            }
+            .frame(maxWidth: 700)
+        }
+        
     }
 }
 
 
 
-//#Preview {
-//    SignUpView()
-//}
+#Preview {
+    SignUpView()
+}
 
 // IDEEEEKKKKKK
 
