@@ -24,7 +24,7 @@ struct MainTabView: View {
                     Label("Blog", systemImage: "lightbulb")
                 }
             
-            HomeView()
+            ProfileView()
                 .tabItem {
                     Label("Profile", systemImage: "person.crop.circle")
                 }

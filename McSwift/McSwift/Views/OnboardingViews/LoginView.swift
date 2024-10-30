@@ -21,7 +21,7 @@ struct LoginView: View {
             
             //VIEW ON LOAD IF AUTH IS FINE
             
-            HomeView()
+            MainTabView()
         } else {
             ZStack{
                 RadialGradient(colors: [Color.mcsPurple, Color.mcsDarkPurple], center: .topLeading, startRadius: -150, endRadius: 900)                .ignoresSafeArea()
