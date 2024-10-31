@@ -11,9 +11,10 @@ import Foundation
 import Firebase
 import FirebaseAuth
 
-struct UserData: Identifiable, Codable {
+struct UserData: Codable {
     
-    var id: UUID
+    var email: String
+    var uid: String
     var firstName: String
     var lastName: String
     var dob: String
@@ -23,17 +24,22 @@ struct UserData: Identifiable, Codable {
     var courses: [Courses?]
     var streak: Int
     
-    init(id: UUID, firstName: String, lastName: String, dob: String, phone: String, contract: Contract, courses: [Courses?], streak: Int) {
-        self.id = id
-        self.firstName = firstName
-        self.lastName = lastName
-        self.dob = dob
-        self.phone = phone
-        self.contract = contract
-        self.courses = courses
-        self.streak = streak
-    }
     
+    init(dictionary: [String: Any]) {
+        self.email = dictionary["email"] as? String ?? ""
+        self.firstName = dictionary["firstname"] as? String ?? ""
+        self.lastName = dictionary["lastname"] as? String ?? ""
+        self.uid = dictionary["uid"] as? String ?? ""
+        self.contract = dictionary["contract"] as? Contract ?? Contract.basic
+        self.courses = dictionary["courses"] as? [Courses?] ?? [Courses]()
+        self.dob = dictionary["courses"] as? String ?? ""
+        self.streak = dictionary["streak"] as? Int ?? 0
+        self.phone = dictionary["phone"] as? String ?? ""
+        
+        
+        }
+    
+
 }
 
 enum Contract: String, Codable {

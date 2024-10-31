@@ -9,29 +9,20 @@ import Foundation
 import FirebaseFirestore
 import Firebase
 
-struct PostsRepository {
-    static let postsReference = Firestore.firestore().collection("posts")
 
-    static func create(_ post: BlogPost) async throws {
-    let document = postsReference.document(post.id.uuidString)
-    try await document.setData(from: post)
+struct BlogRepository{
     
-    }
-}
-
-//No 'async' operations occur within 'await' expression - fix below
-
-private extension DocumentReference {
-    func setData<T: Encodable>(from value: T) async throws {
-        return try await withCheckedThrowingContinuation { continuation in
-            //Method throws if there’s an encoding error
-            try! setData(from: value) { error in
-                if let error = error {
-                    continuation.resume(throwing: error)
-                    return
-                }
-                continuation.resume()
-            }
+    let postsReference = Firestore.firestore().collection("posts")
+    
+    private func fetchBlogPosts(from query: Query) async throws -> [BlogPost] {
+        let snapshot = try await query
+            .order(by: "timestamp", descending: true)
+            .getDocuments()
+        return snapshot.documents.compactMap { document in
+            try! document.data(as: BlogPost.self)
         }
     }
+
 }
+
+

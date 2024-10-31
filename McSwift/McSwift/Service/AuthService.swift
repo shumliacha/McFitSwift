@@ -10,6 +10,7 @@ import FirebaseAuth
 
 @MainActor class AuthService: ObservableObject {
     
+    
     @Published var isAuthenticated = false
     
     private let auth = Auth.auth()

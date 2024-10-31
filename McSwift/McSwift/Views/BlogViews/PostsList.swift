@@ -8,20 +8,27 @@
 // TO DO
 // Hide the search bar until swiped down
 // open keyboard when pressed on it
+// link works but ui does not
+
 
 import SwiftUI
 
 struct PostsList: View {
     
-    @State private var searchText = ""
+    @StateObject var viewModel = BlogData()
     
-    private var posts = [BlogPost.testPost]
+    @State private var searchText = ""
+    @State private var showNewPostForm = false
     
      var body: some View {
         NavigationStack {
                 List (posts) { post in
                     if searchText.isEmpty || post.contains(searchText) {
-                        PostPreview(post: post)
+                        NavigationLink(destination: {
+                            PostPreview(post: post)
+                        }, label: {
+                            PostPreview(post: post)
+                        })
                         //show only searched for posts if searched
                     }
                 }

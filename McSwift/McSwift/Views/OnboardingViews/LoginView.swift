@@ -5,7 +5,7 @@
 //  Created by Kristina Litvinova on 17.08.2024.
 
 // TO DO
-// open keyboard on device when tapped on field
+// open keyboard on device when tapped on field & ad hide with swipe
 // animation
 
 import SwiftUI
@@ -38,7 +38,7 @@ struct LoginView: View {
                                 .font(.title.bold())
                                 .foregroundStyle(Color.white)
                         }
-                        .padding(EdgeInsets(top: 60, leading: 0, bottom: 80, trailing: 60))
+                        .padding(EdgeInsets(top: 50, leading: 0, bottom: 110, trailing: 60))
                         
                         
                         
@@ -48,7 +48,7 @@ struct LoginView: View {
     // OMG AM I BLIND
     // Sign Up view should be here the fs
                                     .font(.title3)
-                                    .fontWeight(.black)
+                                    .fontWeight(.bold)
                                     .padding(EdgeInsets(top: 10, leading: 10, bottom: 20, trailing: 0))
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                 
@@ -79,10 +79,10 @@ struct LoginView: View {
                                 .background(Color.contrastButton)
                                 .cornerRadius(60)
                         }
-                        .padding(EdgeInsets(top: 30, leading: 40, bottom: 0, trailing: 40))
+                        .padding(EdgeInsets(top: 30, leading: 40, bottom: 20, trailing: 40))
                         
                         
-                        Spacer()
+                        //Spacer()
                         
                         NavigationLink(destination: {
                             SignUpView(viewModel: viewModel.makeCreateAccountViewModel())
@@ -92,6 +92,8 @@ struct LoginView: View {
                                 .font(.callout)
                                 .foregroundColor(Color.white)
                         })
+                        .padding(EdgeInsets(top: 0, leading: 40, bottom: 20, trailing: 40))
+                        
 
                     }
                     .frame(maxWidth: 700)

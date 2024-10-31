@@ -5,6 +5,9 @@
 //  Created by Kristina Litvinova on 20.08.2024.
 //
 
+//TO DO
+// CHange back button to white or sth else but not blue
+
 import SwiftUI
 
 struct SignUpView: View {
@@ -44,7 +47,6 @@ struct SignUpView: View {
                         ScrollView {
                             VStack {
                                 Text("Create an Account")
-                                // OMG AM I BLIND
                                 // Sign Up view should be here the fs
                                     .font(.title3)
                                     .fontWeight(.bold)

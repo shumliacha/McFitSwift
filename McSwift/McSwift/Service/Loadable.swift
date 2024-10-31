@@ -12,7 +12,7 @@ enum Loadable<Value> {
     case error(Error)
     case loaded(Value)
     
-    var value: Value? { //WILL IT BE EITABLE OR ONLY READABLE?????
+    var value: Value? { //WILL IT BE EDITABLE OR ONLY READABLE?????
         get {
             if case let .loaded(value) = self {
                 return value
