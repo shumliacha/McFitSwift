@@ -14,7 +14,7 @@ protocol BlogRepositoryProtocol {
     func fetchAllBlogPosts() async throws -> [BlogPost]
 }
 
-struct BlogRepository{
+struct BlogRepository: BlogRepositoryProtocol {
     
     let postsReference = Firestore.firestore().collection("posts")
     
@@ -23,7 +23,7 @@ struct BlogRepository{
     }
 
     
-    private func fetchBlogPosts(from query: Query) async throws -> [BlogPost] {
+    func fetchBlogPosts(from query: Query) async throws -> [BlogPost] {
         let snapshot = try await query
             .order(by: "timestamp", descending: true)
             .getDocuments()
