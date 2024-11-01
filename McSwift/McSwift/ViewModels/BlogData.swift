@@ -12,32 +12,16 @@ import FirebaseFirestore
 class BlogData: ObservableObject {
     
     @Published var posts: Loadable<[BlogPost]> = .loading
-    private let blogRepository: BlogRepository
-    private let filter: Filter
+    private let blogRepository: BlogRepositoryProtocol
     
-    var title: String {
-        switch filter {
-        case .all:
-            return "Posts"
-        case .favorites:
-            return "Favorites"
-        }
+    init(blogRepository: BlogRepositoryProtocol = BlogRepository()) {
+        self.blogRepository = blogRepository
     }
-
-
-    init(filter: Filter = .all, blogPostsRepository: BlogRepositoryProtocol = BlogRepository()) {
-        self.filter = filter
-        self.blogPostsRepository = blogPostsRepository
-    }
-    
-    enum Filter {
-        case all, favorites
-    }
-    
+        
     func fetchPosts() {
         Task {
             do {
-                posts = .loaded(try await blogRepository.fetchBlogPosts())
+                posts = .loaded(try await blogRepository.fetchAllBlogPosts())
             } catch {
                 print("[PostsViewModel] Cannot fetch posts: \(error)")
                 posts = .error(error)
@@ -45,17 +29,13 @@ class BlogData: ObservableObject {
         }
     }
     
+    
 }
+
 
 private extension BlogRepositoryProtocol {
-    func fetchPosts(matching filter: BlogData.Filter) async throws -> [BlogPost] {
-        switch filter {
-        case .all:
-            return try await fetchAllPosts()
-        case .favorites:
-            return try await fetchFavoritePosts()
-        }
+    func fetchPosts() async throws -> [BlogPost] {
+            return try await fetchAllBlogPosts()
+        
     }
 }
-
-

@@ -10,11 +10,12 @@
 import Foundation
 import Firebase
 import FirebaseAuth
+import FirebaseFirestore
 
-struct UserData: Codable {
+struct UserData: Identifiable, Codable {
     
     var email: String
-    var uid: String
+    @DocumentID var id: String? = ""
     var firstName: String
     var lastName: String
     var dob: String
@@ -29,7 +30,7 @@ struct UserData: Codable {
         self.email = dictionary["email"] as? String ?? ""
         self.firstName = dictionary["firstname"] as? String ?? ""
         self.lastName = dictionary["lastname"] as? String ?? ""
-        self.uid = dictionary["uid"] as? String ?? ""
+        self.id = dictionary["id"] as? String ?? ""
         self.contract = dictionary["contract"] as? Contract ?? Contract.basic
         self.courses = dictionary["courses"] as? [Courses?] ?? [Courses]()
         self.dob = dictionary["courses"] as? String ?? ""
@@ -41,6 +42,11 @@ struct UserData: Codable {
     
 
 }
+
+extension UserData {
+    static var empty = UserData(dictionary: [:])
+}
+
 
 enum Contract: String, Codable {
     case basic = "Basic"

@@ -9,10 +9,8 @@ import SwiftUI
 
 struct PostDetail: View {
     
-    let post: BlogPost
-    //GIRL WHAT ARE YOU DOING
-    //PLEASE INSERT VIEWMODEL HERE
-        
+    var post: BlogPost
+            
     //Custom modifier for different views - grid or list
     //make this a supporting view to use in lists and grids
      var body: some View {

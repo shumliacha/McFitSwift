@@ -9,10 +9,19 @@ import Foundation
 import FirebaseFirestore
 import Firebase
 
+protocol BlogRepositoryProtocol {
+    func fetchBlogPosts(from query: Query) async throws -> [BlogPost]
+    func fetchAllBlogPosts() async throws -> [BlogPost]
+}
 
 struct BlogRepository{
     
     let postsReference = Firestore.firestore().collection("posts")
+    
+    func fetchAllBlogPosts() async throws -> [BlogPost] {
+        return try await fetchBlogPosts(from: postsReference)
+    }
+
     
     private func fetchBlogPosts(from query: Query) async throws -> [BlogPost] {
         let snapshot = try await query
@@ -22,7 +31,6 @@ struct BlogRepository{
             try! document.data(as: BlogPost.self)
         }
     }
-
 }
 
 

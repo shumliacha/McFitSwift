@@ -22,17 +22,39 @@ struct PostsList: View {
     
      var body: some View {
         NavigationStack {
-                List (posts) { post in
-                    if searchText.isEmpty || post.contains(searchText) {
-                        NavigationLink(destination: {
+            
+            Group {
+                switch viewModel.posts {
+                case .loading:
+                    ProgressView()
+                case let .error(error):
+                    EmptyListView(
+                        title: "Cannot Load Posts",
+                        message: error.localizedDescription,
+                        retryAction: {
+                            viewModel.fetchPosts()
+                        }
+                    )
+
+                case .empty:
+                    EmptyListView(
+                        title: "No Posts",
+                        message: "There aren’t any posts yet."
+                    )
+                    
+                case let .loaded(posts):
+                    List(posts) { post in
+                        if searchText.isEmpty || post.contains(searchText) {
+                            //PostRreview(viewModel: viewModel.makePostRowViewModel(for: post))
                             PostPreview(post: post)
-                        }, label: {
-                            PostPreview(post: post)
-                        })
-                        //show only searched for posts if searched
+                        }
                     }
+                    .searchable(text: $searchText)
+                    //.animation(.default, value: posts)
                 }
+            }
                 .searchable(text: $searchText)
+            
             
                 .navigationTitle("Blog")
         }

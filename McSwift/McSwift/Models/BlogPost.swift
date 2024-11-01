@@ -10,7 +10,7 @@ import Foundation
 import SwiftUI
 import Firebase
 
-struct BlogPost: Identifiable, Codable { //for uuid for lists and foreach, for urls
+struct BlogPost: Identifiable, Codable, Equatable { //for uuid for lists and foreach, for urls
     var title: String
     var authorName: String
     //var banner: String //leave out for now, I need to add async await and main actor for it

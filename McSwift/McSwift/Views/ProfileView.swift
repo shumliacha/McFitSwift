@@ -14,22 +14,28 @@ import FirebaseAuth
 
 struct ProfileView: View {
     
-    @StateObject var viewModel = BlogData()
+//@ObservedObject var viewModel: UserService
+    @StateObject var viewModel = UserService(uid: String(Auth.auth().currentUser!.uid))
     
-    
-    var body: some View {
-        Button("Sign Out", action: {
-            try! Auth.auth().signOut()
-        })
+//    init(userData: UserData) {
+//        self.viewModel = UserService(userData: userData)
+//    }
+//    
+//    init(uid: String) {
+//        self.viewModel = UserService(uid: uid)
+//    }
+            
+        var body: some View {
+            Button("Sign Out", action: {
+                try! Auth.auth().signOut()
+            })
+            
+            Text(viewModel.userData.contract.rawValue)
+        }
+        
     }
-    
-    fetchUserWithUid(uid: uid) { user in
-        // Handle the fetched user data
-        print(user)
-    }
-    
-}
+
 
 #Preview {
-    ProfileView()
+    //ProfileView(userData: UserData(dictionary: ["contract": "123456789"]))
 }
