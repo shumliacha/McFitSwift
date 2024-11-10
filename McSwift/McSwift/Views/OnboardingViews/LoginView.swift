@@ -70,7 +70,7 @@ struct LoginView: View {
                         Button(action: {
                             viewModel.signIn()
                         }){
-                            Text("Sign In")
+                            Text("Log In")
                                 .fontWeight(.heavy)
                                 .font(.callout)
                                 .frame(maxWidth: .infinity)
@@ -87,7 +87,7 @@ struct LoginView: View {
                         NavigationLink(destination: {
                             SignUpView(viewModel: viewModel.makeCreateAccountViewModel())
                         }, label: {
-                            Text("Log In")
+                            Text("Create an Account")
                                 .fontWeight(.semibold)
                                 .font(.callout)
                                 .foregroundColor(Color.white)

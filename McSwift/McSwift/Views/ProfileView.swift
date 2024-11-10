@@ -14,23 +14,20 @@ import FirebaseAuth
 
 struct ProfileView: View {
     
-//@ObservedObject var viewModel: UserService
     @StateObject var viewModel = UserService(uid: String(Auth.auth().currentUser!.uid))
     
-//    init(userData: UserData) {
-//        self.viewModel = UserService(userData: userData)
-//    }
-//    
-//    init(uid: String) {
-//        self.viewModel = UserService(uid: uid)
-//    }
             
         var body: some View {
-            Button("Sign Out", action: {
-                try! Auth.auth().signOut()
-            })
-            
-            Text(viewModel.userData.contract.rawValue)
+            NavigationStack {
+                Form {
+                    Button("Sign Out", action: {
+                        try! Auth.auth().signOut()
+                    })
+                    
+                    Text(viewModel.userData.contract.rawValue)
+                }
+                .navigationTitle("Profile")
+            }
         }
         
     }

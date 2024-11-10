@@ -20,7 +20,7 @@ struct MainTabView: View {
                     Label("Home", systemImage: "house")
                 }
             
-            PostsList()
+            PostsListView()
                 .tabItem {
                     Label("Blog", systemImage: "lightbulb")
                 }

@@ -29,6 +29,10 @@ class BlogData: ObservableObject {
         }
     }
     
+    func makePostRowViewModel(for post: BlogPost) -> BlogPostViewModel {
+        return BlogPostViewModel(blogPost: post)
+    }
+    
     
 }
 

@@ -47,7 +47,6 @@ struct SignUpView: View {
                         ScrollView {
                             VStack {
                                 Text("Create an Account")
-                                // Sign Up view should be here the fs
                                     .font(.title3)
                                     .fontWeight(.bold)
                                     .padding(EdgeInsets(top: 5, leading: 10, bottom: 30, trailing: 0))
@@ -70,6 +69,9 @@ struct SignUpView: View {
                                 InputFieldView(data: $phone, title: "Phone Number", isSecured: false)
                                 
                                 InputFieldView(data: $courses, title: "Your Courses", isSecured: false)
+                                Picker("Courseeeeeee", selection: $courses) {
+                                    Text("Courses")
+                                }
                                 
                                 DatePicker(selection: $birthDate, in: ...Date.now, displayedComponents: .date) {
                                                 Text("Date of Birth")
@@ -99,15 +101,15 @@ struct SignUpView: View {
                 .frame(maxWidth: 700)
             }
         }
-        
+        .accentColor(.white)
     }
 }
 
 
 
-//#Preview {
-//    SignUpView(viewModel: viewModel.makeCreateAccountViewModel())
-//}
+#Preview {
+    SignUpView(viewModel: ViewModel)
+}
 
 
 

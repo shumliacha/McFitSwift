@@ -52,5 +52,7 @@ extension AuthViewModel {
         convenience init(action: @escaping Action) {
             self.init(initialValue: (name: "", email: "", password: ""), action: action)
         }
+        
+        
     }
 }

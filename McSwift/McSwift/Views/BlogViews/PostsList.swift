@@ -22,45 +22,53 @@ struct PostsList: View {
     
      var body: some View {
         NavigationStack {
-            
-            Group {
-                switch viewModel.posts {
-                case .loading:
-                    ProgressView()
-                case let .error(error):
-                    EmptyListView(
-                        title: "Cannot Load Posts",
-                        message: error.localizedDescription,
-                        retryAction: {
-                            viewModel.fetchPosts()
-                        }
-                    )
-
-                case .empty:
-                    EmptyListView(
-                        title: "No Posts",
-                        message: "There aren’t any posts yet."
-                    )
-                    
-                case let .loaded(posts):
-                    List(posts) { post in
-                        if searchText.isEmpty || post.contains(searchText) {
-                            //PostRreview(viewModel: viewModel.makePostRowViewModel(for: post))
-                            PostPreview(post: post)
-                        }
-                    }
-                    .searchable(text: $searchText)
-                    //.animation(.default, value: posts)
-                }
+           Group {
+//            
+//                switch viewModel.posts {
+//                    
+//                case .loading:
+//                    ProgressView()
+//                    
+//                case let .error(error):
+//                    EmptyListView(
+//                        title: "Cannot Load Posts",
+//                        message: error.localizedDescription,
+//                        retryAction: {
+//                            viewModel.fetchPosts()
+//                        }
+//                    )
+//
+//                case .empty:
+//                    EmptyListView(
+//                        title: "No Posts",
+//                        message: "There aren’t any posts in the Blog yet."
+//                    )
+//                    
+//                case let .loaded(posts):
+//                    
+//                    ForEach(posts, id: \.self) { post in
+//                        PostPreview(viewModel: viewModel.makePostRowViewModel(for: post))
+//                    }
+////                    List(posts) { post in
+////                        if searchText.isEmpty || post.contains(searchText) {
+////                            //PostRreview(viewModel: viewModel.makePostRowViewModel(for: post))
+////                            //PostPreview(post: post)
+////                            PostPreview(viewModel: viewModel.makeBlogPostViewModel(for: post))
+////                        }
+////                    }
+//                    .searchable(text: $searchText)
+//                    //.animation(.default, value: posts)
+//                    ForEach(posts, id: \.self) { post in
+//                        PostPreview(viewModel: viewModel.makeBlogPostViewModel(for: post))
+//                    }
+//                    
+//                }
             }
-                .searchable(text: $searchText)
-            
-            
                 .navigationTitle("Blog")
         }
     
         
-         // RadialGradient(colors: [Color.mcsPurple, Color.mcsDarkPurple], center: .topLeading, startRadius: -150, endRadius: 900)                .ignoresSafeArea()
+          RadialGradient(colors: [Color.mcsPurple, Color.mcsDarkPurple], center: .topLeading, startRadius: -150, endRadius: 900)                .ignoresSafeArea()
     }
 }
 
