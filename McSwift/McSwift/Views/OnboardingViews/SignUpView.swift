@@ -107,9 +107,9 @@ struct SignUpView: View {
 
 
 
-#Preview {
-    SignUpView(viewModel: ViewModel)
-}
+//#Preview {
+//    SignUpView(viewModel: viewModel)
+//}
 
 
 

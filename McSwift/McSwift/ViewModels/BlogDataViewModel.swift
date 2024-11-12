@@ -9,7 +9,7 @@ import Foundation
 import FirebaseFirestore
 
 @MainActor
-class BlogData: ObservableObject {
+class BlogDataViewModel: ObservableObject {
     
     @Published var posts: Loadable<[BlogPost]> = .loading
     private let blogRepository: BlogRepositoryProtocol
@@ -29,10 +29,9 @@ class BlogData: ObservableObject {
         }
     }
     
-    func makePostRowViewModel(for post: BlogPost) -> BlogPostViewModel {
+    func makeBlogPostViewModel(for post: BlogPost) -> BlogPostViewModel {
         return BlogPostViewModel(blogPost: post)
     }
-    
     
 }
 
