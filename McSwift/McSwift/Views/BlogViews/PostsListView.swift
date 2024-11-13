@@ -9,6 +9,7 @@
 // Hide the search bar until swiped down
 // open keyboard when pressed on it
 // link works but ui does not
+// ADD GRADIENT LIKE IN HOME VIEW
 
 
 import SwiftUI
@@ -20,43 +21,76 @@ struct PostsListView: View {
     @State private var searchText = ""
     
      var body: some View {
-        NavigationStack {
-                switch viewModel.posts {
-                    
-                case .loading:
-                    ProgressView()
-                    
-                case let .error(error):
-                    EmptyListView(
-                        title: "Cannot Load Posts",
-                        message: error.localizedDescription,
-                        retryAction: {
-                            viewModel.fetchPosts()
-                        }
-                    )
-
-                case .empty:
-                    EmptyListView(
-                        title: "No Posts",
-                        message: "There aren’t any posts in the Blog yet."
-                    )
-                    
-                case let .loaded(posts):
-                   List(posts) { post in
-                       PostPreview(viewModel: viewModel.makeBlogPostViewModel(for: post))
-                    }
-                    .searchable(text: $searchText)
-            }
-  //              .navigationTitle("Blog")
-        }
-        .onAppear {
-                viewModel.fetchPosts()
-            }
+         ZStack (alignment: .top){
+             
+             RadialGradient(colors: [Color.mcsDarkPurple, Color.init(uiColor: .systemGray4)], center: .topLeading, startRadius: 1, endRadius: 735)
+                 .ignoresSafeArea()
+                 .opacity(0.50)
+             // DOESN'T WORKKKK
+             NavigationStack {
+                 
+                     Group {
+                         switch viewModel.posts {
+                             
+                         case .loading:
+                             ProgressView()
+                             
+                         case let .error(error):
+                             EmptyListView(
+                                title: "Cannot Load Posts",
+                                message: error.localizedDescription,
+                                retryAction: {
+                                    viewModel.fetchPosts()
+                                }
+                             )
+                             
+                         case .empty:
+                             EmptyListView(
+                                title: "No Posts",
+                                message: "There aren’t any posts in the Blog yet."
+                             )
+                             
+                         case let .loaded(posts):
+                             List(posts) { post in
+                                 if searchText.isEmpty || post.contains(searchText) {
+                                     NavigationLink(destination: PostDetail(blogPost: post)) {
+                                         PostPreview(viewModel: viewModel.makeBlogPostViewModel(for: post))
+                                     }
+                                 }
+                             }
+                             .searchable(text: $searchText)
+                         }
+                     }
+                 
+                 .navigationTitle("Blog")
+             }
+             .onAppear {
+                 viewModel.fetchPosts()
+             }
+         }
         
-          RadialGradient(colors: [Color.mcsPurple, Color.mcsDarkPurple], center: .topLeading, startRadius: -150, endRadius: 900)                .ignoresSafeArea()
+         // RadialGradient(colors: [Color.mcsPurple, Color.mcsDarkPurple], center: .topLeading, startRadius: -150, endRadius: 900)                .ignoresSafeArea()
     }
 }
 
-#Preview {
-    PostsListView()
+#if DEBUG
+struct PostsListView_Previews: PreviewProvider {
+    static var previews: some View {
+        ListPreview(state: .loaded([BlogPost.testPost]))
+        ListPreview(state: .empty)
+        ListPreview(state: .error)
+        ListPreview(state: .loading)
+    }
+    
+    @MainActor
+    private struct ListPreview: View {
+        let state: Loadable<[BlogPost]>
+        
+        var body: some View {
+            let postsRepository = BlogRepositoryStub(state: state)
+            let viewModel = BlogPostViewModel(blogPost: BlogPost.testPost)
+            PostPreview(viewModel: viewModel)
+        }
+    }
 }
+#endif

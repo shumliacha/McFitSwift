@@ -10,7 +10,7 @@ import FirebaseFirestore
 import Firebase
 
 protocol BlogRepositoryProtocol {
-    func fetchBlogPosts(from query: Query) async throws -> [BlogPost]
+//    func fetchBlogPosts(from query: Query) async throws -> [BlogPost]
     func fetchAllBlogPosts() async throws -> [BlogPost]
 }
 
@@ -33,4 +33,15 @@ struct BlogRepository: BlogRepositoryProtocol {
     }
 }
 
+
+#if DEBUG
+struct BlogRepositoryStub: BlogRepositoryProtocol {
+    let state: Loadable<[BlogPost]>
+    
+    func fetchAllBlogPosts() async throws -> [BlogPost] {
+        return try await state.simulate()
+    }
+
+}
+#endif
 
