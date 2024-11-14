@@ -6,7 +6,6 @@
 
 
 // TO DO
-// Hide the search bar until swiped down
 // open keyboard when pressed on it
 // link works but ui does not
 // ADD GRADIENT LIKE IN HOME VIEW
@@ -16,8 +15,10 @@ import SwiftUI
 
 struct PostsListView: View {
     
+    
     @StateObject var viewModel = BlogDataViewModel()
     
+    //search
     @State private var searchText = ""
     
      var body: some View {
@@ -46,8 +47,8 @@ struct PostsListView: View {
                              
                          case .empty:
                              EmptyListView(
-                                title: "No Posts",
-                                message: "There aren’t any posts in the Blog yet."
+                                title: "Empty 😔",
+                                message: "There are no posts in the Blog yet."
                              )
                              
                          case let .loaded(posts):

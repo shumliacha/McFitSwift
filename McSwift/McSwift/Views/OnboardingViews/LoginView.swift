@@ -7,12 +7,16 @@
 // TO DO
 // open keyboard on device when tapped on field & ad hide with swipe
 // animation
+// fix focusing
 
 import SwiftUI
 
 struct LoginView: View {
     @StateObject var viewModel = AuthViewModel()
     @State private var isLoading = true
+    
+    @FocusState private var focusing: FocusedField?
+    
     
     
     var body: some View {
@@ -64,13 +68,28 @@ struct LoginView: View {
                                         InputFieldView(data: $viewModel.email, title: "Email", isSecured: false)
                                             .textContentType(.emailAddress)
                                             .textInputAutocapitalization(.never)
+                                            .autocorrectionDisabled()
+                                            .focused($focusing, equals: .email)
+                                            .submitLabel(.next)
 
                                         InputFieldView(data: $viewModel.password, title: "Password", isSecured: true)
-                                            .textContentType(.newPassword)
+                                            .textContentType(.password)
                                             .textInputAutocapitalization(.never)
+                                            .focused($focusing, equals: .password)
+                                            .submitLabel(.done)
+                                            .autocorrectionDisabled()
+
 
 
                                     }
+                                    .onSubmit {
+                                                if focusing == .email {
+                                                    focusing = .password
+                                                } else {
+                                                    focusing = nil
+                                                }
+                                            }
+
                                 }
 
                                 .padding()
@@ -111,6 +130,7 @@ struct LoginView: View {
 
 
 
+
                 }
             }
         }
@@ -121,6 +141,10 @@ struct LoginView: View {
             }
         }
     }
+}
+
+enum FocusedField {
+    case email, password, firstName, lastName, phone
 }
 
 
