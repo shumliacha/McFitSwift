@@ -25,8 +25,9 @@ struct PostsListView: View {
          ZStack (alignment: .top){
              
              RadialGradient(colors: [Color.mcsDarkPurple, Color.init(uiColor: .systemGray4)], center: .topLeading, startRadius: 1, endRadius: 735)
+                 .opacity(0.30)
                  .ignoresSafeArea()
-                 .opacity(0.50)
+
              // DOESN'T WORKKKK
              NavigationStack {
                  

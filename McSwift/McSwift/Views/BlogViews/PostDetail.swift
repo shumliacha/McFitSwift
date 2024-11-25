@@ -9,12 +9,9 @@ import SwiftUI
 
 struct PostDetail: View {
 
-//TRY
-//    @ObservedObject var viewModel: BlogPostViewModel
     var blogPost: BlogPost
             
      var body: some View {
-         Text("")
          ScrollView{
              VStack (alignment: .leading){
                             ZStack {
@@ -24,11 +21,21 @@ struct PostDetail: View {
                                     .frame(width: .infinity, height: 200, alignment: .center)
                                     .clipped()
                                     .clipShape(RoundedRectangle(cornerRadius: 5.5))
-                                    .backgroundStyle(Color.black)
-                                    //.opacity(0.3)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 5.5)
+                                            .stroke(Color.mcsPurple, lineWidth: 6)
+                                    )
                                 
-                                LinearGradient(colors: [Color.init(uiColor: .mcsPurple), Color.clear], startPoint: .bottom, endPoint: .top)
-                                    .clipShape(RoundedRectangle(cornerRadius: 5.5))
+                                VStack(spacing: 0){
+                                    LinearGradient(colors: [Color.init(uiColor: .mcsPurple), Color.clear], startPoint: .bottom, endPoint: .center)
+                                        .clipShape(RoundedRectangle(cornerRadius: 5.5))
+                                    
+                                    Rectangle()
+                                        .foregroundStyle(Color.mcsPurple)
+                                        .frame(width: .infinity, height: 60, alignment: .center)
+
+                                }
+                                
                                 
                                 
                                /* RoundedRectangle(cornerRadius: 5)
@@ -38,32 +45,46 @@ struct PostDetail: View {
                                 */
                                 
                                 
+                                
+                                
                                     
                                 
                                 VStack (alignment: .leading) {
-                                    Text(blogPost.title)
-                                        .font(.title2)
-                                        .fontWeight(.bold)
-                                        .foregroundStyle(Color.white)
-                                        .padding(EdgeInsets(top: 125, leading: 15, bottom: 5, trailing: 0))
-                                    HStack{
-                                        Image(systemName: "person.fill")
-                                            .font(.caption)
+                                    Spacer()
+                                    
+                                    Group {
+                                        Text(blogPost.title)
+                                            .font(.title2)
+                                            .fontWeight(.bold)
                                             .foregroundStyle(Color.white)
-                                        Text("\(blogPost.authorName)")
-                                            .font(.caption)
-                                            .foregroundStyle(Color.white)
-                                        Spacer()
-                                        //okay I need to remember how easily dates can be rendered by formatted modifier
-                                        Text(blogPost.timestamp.formatted())
-                                            .font(.caption)
-                                            .foregroundStyle(Color.white)
+                                          //  .padding(EdgeInsets(top: 15, leading: 15, bottom: 5, trailing: 0))
+                                        
+                                        HStack{
+                                            Image(systemName: "person.fill")
+                                                .font(.caption)
+                                                .foregroundStyle(Color.white)
+                                            Text("\(blogPost.authorName)")
+                                                .font(.caption)
+                                                .foregroundStyle(Color.white)
+                                            Spacer()
+                                            //okay I need to remember how easily dates can be rendered by formatted modifier
+                                            Text(blogPost.timestamp.formatted())
+                                                .font(.caption)
+                                                .foregroundStyle(Color.white)
                                     }
-                                    .padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
+                                      //  .padding(EdgeInsets(top: 0, leading: 15, bottom: 5, trailing: 15))
+
+                                    }
+//                                    .padding(10)
+//                                    .background(Color.init(uiColor: .mcsPurple).opacity(0.9))
+//                                    .cornerRadius(60)
+                                    
+
                                 }
+                                .padding()
                             }
                             .frame(width: .infinity, height: 200, alignment: .center)
-                            .padding(EdgeInsets(top: 0, leading: 17, bottom: 0, trailing: 17))
+                            .padding(EdgeInsets(top: 5, leading: 17, bottom: 0, trailing: 17))
                  
                  Text(blogPost.text)
                 //.padding(25)
