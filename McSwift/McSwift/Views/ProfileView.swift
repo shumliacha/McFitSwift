@@ -20,9 +20,16 @@ struct ProfileView: View {
         var body: some View {
             NavigationStack {
                 Form {
-                    Button("Sign Out", action: {
+                    
+                    Button {
                         try! Auth.auth().signOut()
-                    })
+                    } label: {
+                        HStack{
+                            Image(systemName: "iphone.and.arrow.right.outward")
+                            Text("Sign Out")
+                        }
+                    }
+
                     
                     Text(viewModel.userData.contract.rawValue)
                 }
@@ -33,6 +40,6 @@ struct ProfileView: View {
     }
 
 
-#Preview {
-    //ProfileView(userData: UserData(dictionary: ["contract": "123456789"]))
-}
+//#Preview {
+//    ProfileView(viewModel: UserService(uid: <#T##String#>))
+//}

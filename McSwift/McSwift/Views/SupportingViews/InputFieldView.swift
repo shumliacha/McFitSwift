@@ -11,7 +11,8 @@ struct InputFieldView: View { //https://ix76y.medium.com/create-a-login-page-in-
     //added securefields for passwords
     
     @Binding var data: String //this prwrapper  cause this property wil be passed and changed later
-    var title: String?
+   var title: String?
+    
     
     @State var isSecuredNow = true
     @State var isSecured: Bool
@@ -73,6 +74,41 @@ struct InputFieldView: View { //https://ix76y.medium.com/create-a-login-page-in-
     }
 }
 
+struct InputCustomView: View {
+    @Binding var data: String //this prwrapper  cause this property wil be passed and changed later
+    var title: String?
+    
+    var body: some View {
+        
+        ZStack {
+            TextField("", text: $data)
+                .padding(.horizontal, 10)
+                .frame(height: 44)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 5.5)
+                        .stroke(Color.gray, lineWidth: 1)
+                )
+        
+        Spacer()
+
+        HStack{
+        Text(title ?? "Input")
+            .font(.callout)
+            .fontWeight(.medium)
+            .foregroundStyle(Color.gray)
+            .multilineTextAlignment(.leading)
+            .padding(EdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4))
+            .background()
+        Spacer()
+        }
+
+        .padding(.leading, 8)
+
+        .offset(CGSize(width: 0, height: -20))
+        }
+    }
+
+}
 
 #Preview {
     @Previewable @State var value: String = "blablabla"

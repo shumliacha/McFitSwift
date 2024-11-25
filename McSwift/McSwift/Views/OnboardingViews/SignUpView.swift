@@ -3,10 +3,10 @@
 //  McSwift
 //
 //  Created by Kristina Litvinova on 20.08.2024.
-//
+// ver 1 of login
 
 //TO DO
-// CHange back button to white or sth else but not blue, and put it on thick material
+// Change back button to white or sth else but not blue, and put it on thick material
 //fix scroll, button should be under the form
 
 import SwiftUI
@@ -23,7 +23,7 @@ struct SignUpView: View {
     @State private var courses: String = ""
     
     @FocusState private var focusing: FocusedField?
-
+    @State private var selectedCourses: [String] = []
     
     var body: some View {
         
@@ -80,7 +80,8 @@ struct SignUpView: View {
                                     
                                     InputFieldView(data: $phone, title: "Phone Number", isSecured: false)
                                     
-                                    InputFieldView(data: $courses, title: "Your Courses", isSecured: false)
+                                    
+                                    
                                     Picker("Courseeeeeee", selection: $courses) {
                                         Text("Courses")
                                     }

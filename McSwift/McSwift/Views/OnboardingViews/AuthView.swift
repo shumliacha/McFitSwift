@@ -3,7 +3,7 @@
 //  McSwift
 //
 //  Created by Kristina Litvinova on 30.10.2024.
-// ver 2 of login view, not sure about ui choices
+// ver 2 of login view
 
 import Foundation
 
@@ -12,30 +12,159 @@ import SwiftUI
 struct AuthView: View {
     @StateObject var viewModel = AuthViewModel()
     
-    @State private var isNewSignUp: Bool = false
-    
-    @State private var firstName: String = ""
-    @State private var lastName: String = ""
-    @State private var phone: String = ""
-    
-    @State private var birthDate = Date.now
-    @State private var courses: String = ""
-    
-    @FocusState private var focusing: FocusedField?
+//    @State private var isNewSignUp: Bool = false
+//    
+//    @State private var firstName: String = ""
+//    @State private var lastName: String = ""
+//    @State private var phone: String = ""
+//    
+//    @State private var birthDate = Date.now
+//    @State private var courses: String = ""
+//    
+//    @FocusState private var focusing: FocusedField?
 
-    var body: some View {
-        NavigationView {
-            ZStack{
 
-                RadialGradient(colors: [Color.mcsPurple, Color.mcsDarkPurple], center: .topLeading, startRadius: -150, endRadius: 900)                .ignoresSafeArea()
+        var body: some View {
+            if viewModel.isAuthenticated {
+                MainTabView()
+            } else {
+                NavigationView {
+                    SignInForm(viewModel: viewModel.makeSignInViewModel()) {
+                        NavigationLink("Create Account", destination: CreateAccountForm(viewModel: viewModel.makeCreateAccountViewModel()))
+                            .foregroundStyle((Color.white.opacity(0.55)))
+                            .fontWeight(.medium)
 
+                    }
+                }
+            }
+        }
+    }
+
+
+
+
+//--------------------  CREATE ACCOUNT ---------------------
+
+
+
+
+
+    struct CreateAccountForm: View {
+        @StateObject var viewModel: AuthViewModel.CreateAccountViewModel
+        @Environment(\.dismiss) private var dismiss
+
+        var body: some View {
+            Form {
+                TextField("Name", text: $viewModel.name)
+                    .textContentType(.name)
+                    .textInputAutocapitalization(.words)
+                TextField("Email", text: $viewModel.email)
+                    .textContentType(.emailAddress)
+                    .textInputAutocapitalization(.never)
+                SecureField("Password", text: $viewModel.password)
+                    .textContentType(.newPassword)
+            } footer: {
+                
+                
+                
+                Button(action: viewModel.submit, label: {
+                    Text("Create Account")
+                        .fontWeight(.bold)
+                        .font(.callout)
+                        .frame(maxWidth: .infinity)
+                        .padding(15)
+                        .foregroundColor(Color.systemTextBlack)
+                        .background(Color.contrastButton)
+                        .cornerRadius(60)
+                })
+                .padding(EdgeInsets(top: 30, leading: 40, bottom: 20, trailing: 40))
+                
+                
+                
+                Button(action: dismiss.callAsFunction, label: {
+                    Text("Sign In")
+                        .foregroundStyle((Color.white.opacity(0.55)))
+                        .fontWeight(.medium)
+                })
+
+                
+                
+                
+            }
+            
+            .onSubmit(viewModel.submit)
+            .alert("Cannot Create Account", error: $viewModel.error)
+            .disabled(viewModel.isWorking)
+        }
+
+    }
+
+
+
+
+
+
+//----------------------- SIGN IN -------------------------------
+
+
+
+
+    struct SignInForm<Footer: View>: View {
+        @StateObject var viewModel: AuthViewModel.SignInViewModel
+        @ViewBuilder let footer: () -> Footer
+        
+        var body: some View {
+            Form {
+                TextField("Email", text: $viewModel.email)
+                    .textContentType(.emailAddress)
+                    .textInputAutocapitalization(.never)
+                    
+                SecureField("Password", text: $viewModel.password)
+                    .textContentType(.password)
+            }  footer: {
+                Button(action: {
+                    viewModel.submit()
+                }){
+                    Text("Sign In")
+                        .fontWeight(.bold)
+                        .font(.callout)
+                        .frame(maxWidth: .infinity)
+                        .padding(15)
+                        .foregroundColor(Color.systemTextBlack)
+                        .background(Color.contrastButton)
+                        .cornerRadius(60)
+                }
+                .padding(EdgeInsets(top: 30, leading: 40, bottom: 0, trailing: 40))
+                
+                footer()
+                    .padding()
+            }
+            .onSubmit(viewModel.submit)
+            
+            .alert("Cannot Sign In", error: $viewModel.error)
+            .disabled(viewModel.isWorking)
+        }
+    }
+
+
+
+
+
+//------------------------ FORM ------------------------
+
+
+
+
+    private struct Form<Content: View, Footer: View>: View {
+        @ViewBuilder let content: () -> Content
+        @ViewBuilder let footer: () -> Footer
+        
+        var body: some View {
+            ZStack {
+                        RadialGradient(colors: [Color.mcsPurple, Color.mcsDarkPurple], center: .topLeading, startRadius: -150, endRadius: 900)                 .ignoresSafeArea()
+             
                 VStack {
                     
-                    Spacer()
-                    Spacer()
-                    Spacer()
-
-
                     HStack{
                         Image("AppIconM")
                             .resizable()
@@ -43,117 +172,24 @@ struct AuthView: View {
 
                         Text("McSwift")
                             .font(.title.bold())
-                            .foregroundStyle(Color.white)
+                            .foregroundStyle(Color.init(uiColor: .white))
                     }
-                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 60))
+                    .padding(EdgeInsets(top: 50, leading: 0, bottom: 110, trailing: 60))
                     
-                    Spacer()
-                    Spacer()
-
-
-
-//_________CHANGE FROM HERE__________________
-
-                    GroupBox {
-                        VStack {
-                            if isNewSignUp {
-                                Text("Create an Account")
-                                    .font(.title3)
-                                    .fontWeight(.bold)
-                                    .padding(EdgeInsets(top: 10, leading: 10, bottom: 20, trailing: 0))
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-
-                            } else {
-                                Text("Login")
-                                    .font(.title3)
-                                    .fontWeight(.bold)
-                                    .padding(EdgeInsets(top: 10, leading: 10, bottom: 20, trailing: 0))
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                            }
-                            
-
-                            InputFieldView(data: $viewModel.email, title: "Email", isSecured: false)
-                                .textContentType(.emailAddress)
-                                .textInputAutocapitalization(.never)
-                                .focused($focusing, equals: .email)
-
-                            InputFieldView(data: $viewModel.password, title: "Password", isSecured: true)
-                                .textContentType(.newPassword)
-                                .textInputAutocapitalization(.never)
-                                .focused($focusing, equals: .password)
-                                .submitLabel(.done)
-                            
-                            if isNewSignUp {
-                                
-                                InputFieldView(data: $firstName, title: "First Name", isSecured: false)
-                                
-                                InputFieldView(data: $lastName, title: "Last Name", isSecured: false)
-                                
-                                InputFieldView(data: $phone, title: "Phone Number", isSecured: false)
-                                
-                                InputFieldView(data: $courses, title: "Your Courses", isSecured: false)
-                                Picker("Courseeeeeee", selection: $courses) {
-                                    Text("Courses")
-                                }
-                                
-                                DatePicker(selection: $birthDate, in: ...Date.now, displayedComponents: .date) {
-                                                Text("Date of Birth")
-                                            }
-                            }
-
-                        }
-                        .onSubmit {
-                                    if focusing == .email {
-                                        focusing = .password
-                                    } else {
-                                        focusing = nil
-                                    }
-                                }
-
-                    }
-
-//________GROUP FORM END BUTTONS BELLOW
-                    .padding()
-
-                    //can and must be done by custom view for buttons
-                    Button(action: {
-                        viewModel.signIn()
-                    }){
-                        Text("Log In")
-                            .fontWeight(.heavy)
-                            .font(.callout)
-                            .frame(maxWidth: .infinity)
-                            .padding(15)
-                            .foregroundColor(Color.systemTextBlack)
-                            .background(Color.contrastButton)
-                            .cornerRadius(60)
-                    }
-                    .padding(EdgeInsets(top: 30, leading: 40, bottom: 20, trailing: 40))
-
-
-                    //Spacer()
-
-                    NavigationLink(destination: {
-                        SignUpView(viewModel: viewModel.makeCreateAccountViewModel())
-                    }, label: {
-                        Text("Create an Account")
-                            .fontWeight(.semibold)
-                            .font(.callout)
-                            .foregroundColor(Color.white)
-                    })
-                    .padding(EdgeInsets(top: 0, leading: 40, bottom: 20, trailing: 40))
-
-// __________VSTACK ENDS HERE
+                    
+                    content()
+                        .padding()
+                        .background(Color.systemBackgroundWhite.opacity(0.75))
+                        .cornerRadius(10)
+                    footer()
+                        
                 }
-                .frame(maxWidth: 700)
+                .padding()           .navigationBarHidden(true)
+
             }
         }
-}
+    }
 
-}
-
-
-#Preview {
-    AuthView()
-}
-
+    #Preview {
+        AuthView()
+    }

@@ -15,15 +15,16 @@ struct MainTabView: View {
     var body: some View {
         TabView {
             
-            HomeView()
-                .tabItem {
-                    Label("Home", systemImage: "house")
-                }
-            
             PostsListView()
                 .tabItem {
                     Label("Blog", systemImage: "lightbulb")
                 }
+            
+            HomeView()
+                .tabItem {
+                    Label("Home", systemImage: "house")
+                }
+
             
             ProfileView()
                 .tabItem {

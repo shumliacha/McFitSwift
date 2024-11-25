@@ -47,6 +47,9 @@ extension UserData {
     static var empty = UserData(dictionary: [:])
 }
 
+extension UserData {
+    static let testUser = UserData(dictionary: ["email": "test@test.test", "firstname": "Test", "lastname": "User", "id": "123456789", "contract": Contract.basic, "courses": [Courses.yoga, Courses.pump], "streak": 1, "phone": "1234567890"])
+}
 
 enum Contract: String, Codable {
     case basic = "Basic"

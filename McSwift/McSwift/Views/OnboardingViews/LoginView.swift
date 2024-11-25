@@ -2,7 +2,8 @@
 //  LoginView.swift
 //  McSwift
 //
-//  Created by Kristina Litvinova on 17.08.2024.
+//  Created by Kristina Litvinova on 17.08.2024
+// ver 1 of login
 
 // TO DO
 // open keyboard on device when tapped on field & ad hide with swipe

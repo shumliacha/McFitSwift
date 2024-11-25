@@ -39,8 +39,6 @@ class AuthViewModel: ObservableObject {
     
 }
 
-//WHY WOULD WE NEED A FORMVIEWMODEL?????
-
 extension AuthViewModel {
     class SignInViewModel: FormViewModel<(email: String, password: String)> {
         convenience init(action: @escaping Action) {
@@ -49,10 +47,12 @@ extension AuthViewModel {
     }
     
     class CreateAccountViewModel: FormViewModel<(name: String, email: String, password: String)> {
+        // firstName: String, lastName: String, phone: String, birthDate: Date, courses: String 
         convenience init(action: @escaping Action) {
             self.init(initialValue: (name: "", email: "", password: ""), action: action)
+            
         }
-        
         
     }
 }
+
