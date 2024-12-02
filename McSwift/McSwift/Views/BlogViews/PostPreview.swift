@@ -19,7 +19,7 @@ struct PostPreview: View {
                     Image("testImage")
                         .resizable()
                         .scaledToFill()
-                        .frame(width: 80,height: 60, alignment: .center)
+                        .frame(width: 80,height: 55, alignment: .center)
                         .scaledToFit()
                         .clipped()
                         .clipShape(RoundedRectangle(cornerRadius: 5.5))

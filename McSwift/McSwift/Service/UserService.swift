@@ -17,9 +17,6 @@ class UserService: ObservableObject {
     
     let uid: String
     
-//    init(userData: UserData) {
-//        self.userData = userData
-//    }
     
     init(uid: String) {
         self.userData = UserData.empty
